@@ -1,1 +1,2 @@
 streamlit_drawable_canvas==0.9.3
+torch==2.5.1
