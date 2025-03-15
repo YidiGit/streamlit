@@ -110,7 +110,7 @@ def main():
         unsafe_allow_html=True
     )
 
-    col1, col_left, col_right = st.columns([1,5,4])
+    col_left, col_right = st.columns(2)
     
     with col_left:
         st.write("**Draw your sketch below to get started:**")
