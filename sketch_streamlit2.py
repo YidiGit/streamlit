@@ -110,7 +110,7 @@ def main():
         unsafe_allow_html=True
     )
 
-    col_left, col_right = st.columns(2)
+    col1, col_left, col_right = st.columns([1,5,4))
     
     with col_left:
         canvas_result = st_canvas(
