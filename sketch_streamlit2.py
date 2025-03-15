@@ -5,6 +5,7 @@ import streamlit as st
 from streamlit_drawable_canvas import st_canvas
 import torch
 import open_clip
+import base64
 
 # 配置路径
 CLASS_NAMES = sorted([d for d in os.listdir('dataset') if os.path.isdir(f'dataset/{d}')])
@@ -53,12 +54,48 @@ def load_real_animal(class_name):
     
     return real_img
 
-
+def get_image_base64(path):
+    with open(path, "rb") as image_file:
+        encoded_string = base64.b64encode(image_file.read()).decode()
+    return f"data:image/jpg;base64,{encoded_string}"
+    
 def main():
-    st.title("Chinese Characters Are Drawn - Oracle Bone Script")
-    st.subheader("Oracle Bone 12 Zodiac Animals Script")
-    st.markdown("12 Zodiac Animals; Rat, Ox, Tiger, Rabbit, Dragon, Snake, Horse, Goat, Monkey, Rooster, Dog, Pig")
-    st.write("Draw your sketch below to get started:")
+
+    image_path ="background.jpg"  # 确保图片路径正确
+    image_base64 = get_image_base64(image_path)
+
+    # 使用 HTML 和 CSS 来设置图片背景
+    st.markdown(
+        f"""
+        <style>
+        .bg {{
+            # width: 100%;
+            # height: 700px;
+            background-image: url('{image_base64}');
+            background-size: cover;
+            background-position: center;
+            # opacity: 0.5;
+            color: white;
+            padding: 50px;
+            text-align: left;
+            font-size: 50px;
+            font-weight: bold;
+        }}
+        </style>
+        <div class="bg">
+            <h1>Chinese Characters Are Drawn - Oracle Bone Script</h1>
+            <h3>Oracle Bone 12 Zodiac Animals Script</h3>
+            <h4>12 Zodiac Animals; Rat, Ox, Tiger, Rabbit, Dragon, Snake, Horse, Goat, Monkey, Rooster, Dog, Pig</h4>
+            <h4>Draw your sketch below to get started:</h4>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+    # st.title("Chinese Characters Are Drawn - Oracle Bone Script")
+    # st.subheader("Oracle Bone 12 Zodiac Animals Script")
+    # st.markdown("12 Zodiac Animals; Rat, Ox, Tiger, Rabbit, Dragon, Snake, Horse, Goat, Monkey, Rooster, Dog, Pig")
+    # st.write("Draw your sketch below to get started:")
 
     # 添加全屏背景样式（在main函数最前面添加）
     st.markdown(
@@ -148,9 +185,9 @@ def main():
                     st.progress(score.item())
                     st.caption(f"{cls_name} ({score*100:.1f}%)")
 
-st.image("background.jpg", 
-             width=500,  # 可以根据需要调整图片显示宽度
-    )
+# st.image("background.jpg", 
+#              width=500,  # 可以根据需要调整图片显示宽度
+#     )
 
     # Creat canvas
     # canvas_result = st_canvas(
