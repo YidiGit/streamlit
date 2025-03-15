@@ -77,7 +77,7 @@ def main():
             # opacity: 0.5;
             color: white;
             padding: 50px;
-            text-align: center;
+            text-align: left;
             font-size: 50px;
             font-weight: bold;
         }}
@@ -86,7 +86,7 @@ def main():
             <h1>Chinese Characters Are Drawn - Oracle Bone Script</h1>
             <h3>Oracle Bone 12 Zodiac Animals Script</h3>
             <h4>12 Zodiac Animals; Rat, Ox, Tiger, Rabbit, Dragon, Snake, Horse, Goat, Monkey, Rooster, Dog, Pig</h4>
-            <h4>Draw your sketch below to get started:</h4>
+           
         </div>
         """,
         unsafe_allow_html=True
@@ -113,6 +113,7 @@ def main():
     col1, col_left, col_right = st.columns([1,5,4])
     
     with col_left:
+        st.write("**Draw your sketch below to get started:**")
         canvas_result = st_canvas(
             fill_color="#ffffff",
             stroke_width=2,
