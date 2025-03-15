@@ -77,7 +77,7 @@ def main():
             # opacity: 0.5;
             color: white;
             padding: 50px;
-            text-align: left;
+            text-align: center;
             font-size: 50px;
             font-weight: bold;
         }}
