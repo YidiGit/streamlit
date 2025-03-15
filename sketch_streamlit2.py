@@ -83,6 +83,7 @@ def main():
         }}
         </style>
         <div class="bg">
+            <h1>''</hi>
             <h1>Chinese Characters Are Drawn - Oracle Bone Script</h1>
             <h3>Oracle Bone 12 Zodiac Animals Script</h3>
             <h4>12 Zodiac Animals; Rat, Ox, Tiger, Rabbit, Dragon, Snake, Horse, Goat, Monkey, Rooster, Dog, Pig</h4>
