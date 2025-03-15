@@ -119,7 +119,7 @@ def main():
             stroke_color="#000000",
             background_color="#ffffff",
             height=400,
-            width=300,
+            width=400,
             drawing_mode="freedraw",
             key="canvas",
         )
