@@ -67,26 +67,28 @@ def main():
     image_path ="background2.png" 
     image_base64 = get_image_base64(image_path)
     
-    # Use HTML and CSS to set the image background. padding-top: 50px;
+    # Use HTML and CSS to set the image background.
     st.markdown(
     f"""
     <style>
     .bg {{
         height: 700px;
+        width: 95vw;
         background-image: url('{image_base64}');
         background-size: cover;
-        background-position: right;
+        background-position: right center;
         color: #fbf8ef;
         font-size: 100px; 
         font-weight: bold;
         display: flex;
         flex-direction: column;
+        justify-content: center;
         padding: 0;  
         margin: 0;
     }}
 
     .bg h1 {{
-        font-size: 90px !important;
+        font-size: 70px !important;
     }}
     .bg h2 {{
         font-size: 40px !important;  
@@ -131,7 +133,7 @@ def main():
             stroke_width=2,
             stroke_color="#000000",
             background_color="#ffffff",
-            height=400,
+            height=500,
             width=500,
             drawing_mode="freedraw",
             key="canvas",
@@ -171,8 +173,8 @@ def main():
             
             st.success(f"Identify Result: {best_class}")
             
-            # 使用一个容器来显示 Oracle Bone 和 Real Animal 的图片，而不是嵌套列
-             # 使用 st.columns 创建两个子列，使得图片可以并排显示
+            # Use a container to display images of Oracle Bone and Real Animal, rather than nested columns.
+            # Use st.columns to create two sub-columns so that the images can be displayed side by side.
             image_cols = st.columns([1, 1, 1])
             with image_cols[0]:
                 st.markdown(
